@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Spartan Hackers</title>
+</head>
+<body>
+	<nav>
+		<a href="#about">About</a>
+		<a href="#events">Events</a>
+		<a href="#team">Team</a>
+		<a href="#contact">Contact Us</a>
+	</nav>
+	<div class="full">
+		<div class="centered logo_main"><img src="logo.png"></div>
+		<div class="centered heading"></div>
+	</div>
+	<div class="full" id="about">
+		<h2>About</h2>
+		<section>
+			<article>
+				<h3>WHAT IS SPARTAN HACKERS?</h3>
+				<p>
+					Spartan Hackers exists to foster a community of technological innovation, collaboration, and creation at Michigan State University.
+				</p>
+			</article>
+			<article>
+				<h3>WHEN WAS SPARTAN HACKERS FORMED</h3>
+				<p>
+					In 2014,  a group of dedicated students got together to host a series of events to introduce each other to valuable hacking skills as well as host MSU's first hackaton: 
+					<a href="http://spartahack.com/">Spartahack.</a>
+				</p>
+			</article>
+			<article>
+				<h3>WHO CAN BECOME A HACKER</h3>
+				<p>
+					Anyone with a computer or a desire to learn can become a hacker. We have weekly meetings and all are invited.
+				</p>
+			</article>
+		</section>
+	</div>
+	<div class="full" id="events">
+		<h2>Events</h2>
+		<div id="calendar">
+			{% for i in events %}
+				<ul class="event">
+					<li class="title">{{i.title}}</li>
+					<li class="time">{{i.time}}</li>
+					<li class="description">{{i.description}}</li>
+				</ul>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="full" id="team">
+		<h2>Team</h2>
+		<section>
+			{% for member in team %}
+				<article class="team_member" id="{{member.last_name}}">
+					<h3>{{member.first_name}} {{member.last_name}}</h3>
+					<p>
+						<img src="{{member.picture}}" class="member_picture"/>
+						{{member.bio}}
+					</p>
+					{% if member.interests %}
+						<div class="memeber_interests">
+							<ul>
+								{% for i in member.interests %}
+									<li class="interests">{{ i }}</li>
+								{% endfor %}
+							</ul>
+						</div>
+					{% endif %}
+				</article>
+			{% endfor %}
+		</section>
+	</div>
+
+	<div class="full" id="contact">
+		<h2>Contact Us</h2>
+		<div id="maillist">
+			<form id="join_maillist">
+				<label for="mailing_list">Enter your email bellow to join our mailing list.</label>
+				<input type="text" name="mailing_list"/>
+				<input type="submit"/>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
