@@ -1,0 +1,141 @@
+.full {
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.full.section {
+     padding-top: 65px;
+}
+
+a {
+    text-decoration: none;
+    color: #39B54A;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+body {
+    background-color: #222823;
+    color: white;
+}
+
+#home {
+    background: url(/static/img/intro-bg.png) no-repeat bottom center scroll;
+}
+
+#home .heading {
+    margin-top: 10%;
+}
+
+#home .brand  {
+    width: 100%;
+}
+
+#home .brand img {
+    max-width: 100%;
+    height: auto;
+}
+
+#home p {
+    font-size: 25pt;
+    text-align: center;
+    color: white;
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+.section-head {
+    text-align: center;
+    color: #0db14b;
+    text-transform: capitalize;
+}
+
+h2.section-head {
+    font-size: 30pt;
+}
+
+.get-involved {
+    text-align: center;
+    width: 100%;
+    margin: 10px 0;
+}
+
+#about {
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+    border-bottom: 5px solid gray;
+}
+
+.event {
+    text-align: center;
+    -webkit-box-shadow: 0px 6px 13px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 6px 13px 3px rgba(0,0,0,0.75);
+    box-shadow: 0px 6px 13px 3px rgba(0,0,0,0.75);
+    height: 100%;
+    background-color: #29302A;
+    word-wrap: break-word;
+
+}
+
+.event h3 {
+    padding-top: 15px;
+}
+
+.event h4 {
+    margin: 20px 0;
+}
+
+.event p {
+    margin-top: 10px;
+}
+
+.team_member {
+    text-align: center;
+}
+
+.team_member .member_picture {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.team_member ul {
+    list-style: none;
+}
+
+
+.floating-label-form-group label {
+    display: block;
+    z-index: 0;
+    position: static;
+    margin: 0;
+    font-size: 1.25em;
+    opacity: 1;
+}
+
+#codeDisp {
+    text-align: center;
+    overflow: hidden;
+}
+
+#codeDisp > div {
+    margin-top: 40vh;
+}
+
+.highlight {
+    color: #39B54A;
+}
+
+#checkin {
+    color: black;
+}
+
+#checkin-form {
+    text-align: center;
+    overflow: hidden;
+}
+
+#checkin-form > div {
+    margin-top: 20vh;
+}

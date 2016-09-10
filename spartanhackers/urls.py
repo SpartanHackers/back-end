@@ -14,8 +14,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
+
 from django.contrib import admin
+from General.views import index, getCode, closeEvent, loginForEvent, goodCheckin, newCheckin, getAttendees, getEligible
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-]
+    url(r'^$', index, name="index"),
+    url(r'^index$', index, name="index"),
+    url(r'^index.html$', index, name="index"),
+    url(r'^getEventCode/$', getCode, name="getCode"),
+    url(r'^getEventCode/(?P<event>.*)/close$', closeEvent, name="closeEvent"),
+    url(r'^getEventCode/(?P<event>.*)$', getCode, name="getCode"),
+    url(r'^check-in/good/(?P<code>.*)$', goodCheckin, name="good"),
+    url(r'^check-in/new/(?P<code>.*)$', newCheckin, name="new"),
+    url(r'^check-in/$', loginForEvent, name="checkin"),
+    url(r'^events/$', getAttendees, name="allAttendees"),
+    url(r'^events/(?P<event>.*)$', getAttendees, name="event_attendees"),
+    url(r'^members/eligible/(?P<vote_run>.*)$', getEligible, name="event_attendees"),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

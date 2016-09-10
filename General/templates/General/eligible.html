@@ -1,0 +1,17 @@
+{% extends "General/codeList.html" %}
+
+{% block content %}
+    <div>
+        <div>
+            <h2>This is the list of memebers eligible to {{action}} </h2>
+        </div>
+    </div>
+
+    {% for user in users %}
+        <p>
+            <a class="btn">{{ user.name }}</a>
+            <a class="btn">{{ user.email }}</a>
+        </p>
+    {% endfor %}
+    
+{% endblock %}

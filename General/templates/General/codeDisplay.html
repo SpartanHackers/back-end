@@ -1,0 +1,12 @@
+{% extends "General/codeList.html" %}
+
+{% block content %}
+    <div class = "full" id="codeDisp">
+        <div>
+            <h2 style>Today's event is <span class="highlight">{{event.name}}</span> and the code is:</h2>
+            <h1 class="prominent highlight">{{event.code}}</h1>
+        </div>
+    </div>
+
+    <a class="btn" href="/getEventCode/{{ event.fb_id }}/close">Close Event</a>
+{% endblock %}

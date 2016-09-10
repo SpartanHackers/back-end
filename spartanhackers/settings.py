@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'General',
-    "compressor",
+    # "compressor",
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -119,9 +119,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_URL = "/media/"
 
 STATIC_URL = '/static/'
-STATIC_ROOT = "General/static/General/css"
+STATIC_ROOT = os.path.join(BASE_DIR, "General/static/")
 
 
 STATICFILES_FINDERS = (

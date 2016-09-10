@@ -1,0 +1,44 @@
+{% extends "General/eventCheckin.html" %}
+
+{% block content%}
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h2 class="section-head">Almost there! We just need you to give us your name!</h2>
+        </div>
+    </div>
+    <div class = "full" id="checkin-form">
+        <div class="container-fluid">
+            <div class="row">
+                <div div class="col-md-8 col-md-offset-2">
+                    <form method="POST" action="/check-in/new/{{ event.code }}">
+                        {% csrf_token %}
+                        <input type="hidden" name="email" value="{{ email }}">
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label for="email" style="color:white;">What is Your name?</label>
+                                <input type="text" class="form-control" placeholder="Full Name" id="email" required name="name"/>
+                            </div>
+                        </div>
+
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label for="email" style="color:white;">What is Your class Level?</label>
+                                <select required name="level">
+                                    {% for i in levels %}
+                                    <option value="{{ i.id }}">{{ i.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <button id="checkin">Check Me In!</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

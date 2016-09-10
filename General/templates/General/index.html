@@ -1,88 +1,274 @@
+{% load tz %}
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Spartan Hackers</title>
+	{% load static %}
+	<link href="{% static 'css/bootstrap/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/css/clean-blog.min.css' %}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
+	<script src="{% static 'css/bootstrap/js/clean-blog.min.js' %}"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 </head>
 <body>
-	<nav>
-		<a href="#about">About</a>
-		<a href="#events">Events</a>
-		<a href="#team">Team</a>
-		<a href="#contact">Contact Us</a>
+	 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+        	 <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#home">Spartan Hackers</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                    <li>
+                        <a href="#events">Events</a>
+                    </li>
+                    <li>
+                        <a href="#team">Team</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contact Us</a> 
+                    </li>
+                </ul>
+            </div>
+		</div>
 	</nav>
-	<div class="full">
-		<div class="centered logo_main"><img src="logo.png"></div>
-		<div class="centered heading"></div>
+
+	<div class="full" id="home">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 heading">
+					<h1 class="brand">
+						<img src="{% static 'img/spartan-hackers-banner.png' %}">
+					</h1>
+					<p>Coders. Thinkers. Builders. Designers. Tinkerers.</p>
+				</div>
+			</div>
+		</div>
 	</div>
-	<div class="full" id="about">
-		<h2>About</h2>
-		<section>
-			<article>
-				<h3>WHAT IS SPARTAN HACKERS?</h3>
-				<p>
-					Spartan Hackers exists to foster a community of technological innovation, collaboration, and creation at Michigan State University.
-				</p>
-			</article>
-			<article>
-				<h3>WHEN WAS SPARTAN HACKERS FORMED</h3>
-				<p>
-					In 2014,  a group of dedicated students got together to host a series of events to introduce each other to valuable hacking skills as well as host MSU's first hackaton: 
-					<a href="http://spartahack.com/">Spartahack.</a>
-				</p>
-			</article>
-			<article>
-				<h3>WHO CAN BECOME A HACKER</h3>
-				<p>
-					Anyone with a computer or a desire to learn can become a hacker. We have weekly meetings and all are invited.
-				</p>
-			</article>
-		</section>
+	<div class="full section" id="about">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<h2 class="section-head">About Spartan Hackers</h2>
+				</div>
+			</div>
+			<section>
+				<article>
+					<div class="row">
+						<h3 class="section-head">WHAT IS SPARTAN HACKERS?</h3>
+						<div class="col-md-8 col-md-offset-2" style="text-align:left">
+				            <p>Spartan Hackers exists to foster a community of technological innovation, collaboration, and creation at Michigan State University.</p>
+				        </div>
+					</div>
+				</article>
+				<article>
+					<div class="row">
+						<h3 class="section-head">WHEN WAS SPARTAN HACKERS FORMED</h3>
+						<div class="col-md-8 col-md-offset-2">
+							<p>
+								In 2014,  a group of dedicated students got together to host a series of events to introduce each other to valuable hacking skills as well as host MSU's first hackaton: 
+								<a href="http://spartahack.com/">Spartahack.</a>
+							</p>
+						</div>
+					</div>
+				</article>
+				<article>
+					<div class="row">
+						<h3 class="section-head">WHO CAN BECOME A HACKER</h3>
+						<div class="col-md-8 col-md-offset-2">
+							<p>
+								Anyone with a computer or a desire to learn can become a hacker. We have weekly meetings and all are invited.
+							</p>
+						</div>
+					</div>
+				</article>
+				<article>
+					<h3 class="section-head">Get Involved</h3>
+					<div class="col-md-8 col-md-offset-2" id="invovled">
+			            <div>
+			                <p class="get-involved">Check out our <a href="#events">events!</a></p> 
+			                <p class="get-involved">Subscribe to our <a href="#contact">mailing list</a></p>
+			                <p class="get-involved">Like us on <a target="_blank" href="https://www.facebook.com/hack.at.state">facebook</a></p>
+			                <p class="get-involved">Join our facebook group <a target="_blank" href="https://www.facebook.com/groups/529492683857277/">Hackers @ Michigan State</a></p>
+			                <p class="get-involved">Follow us on <a target="_blank" href="https://twitter.com/spartanhackers">twitter</a></p>
+			            </div>
+       				</div>
+				</article>
+			</section>
+		</div>
 	</div>
-	<div class="full" id="events">
-		<h2>Events</h2>
-		<div id="calendar">
-			{% for i in events %}
-				<ul class="event">
-					<li class="title">{{i.title}}</li>
-					<li class="time">{{i.time}}</li>
-					<li class="description">{{i.description}}</li>
-				</ul>
+	<div class="full section" id="events">
+		<div class="container-fluid">
+			<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<h2 class="section-head">Events</h2>
+					</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<h3 class="section-head">Current Events</h3>
+				</div>
+			</div>
+			{% for row in events.current %}
+				<div class="row">
+
+					{% for event in row %}
+						<div class="col-md-4">
+							<section class="event current">
+								<h3 class="event_title">{{event.name}}</h3>
+								<article>
+									<h4>Place and Time</h4>
+			                        {% localtime on %}
+			                            <p>{{event.time}} @ {{event.location}}</p>
+			                    	{% endlocaltime %}
+
+								</article>
+								<article>
+									<h4>Description</h4>
+									<p>{{event.information}}</p>
+								</article>
+							</section>
+						</div>
+					{% endfor %}
+
+				</div>
+			{% endfor %}
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<h3 class="section-head">Past Events</h3>
+				</div>
+			</div>
+            {% for row in events.expired %}
+				<div class="row">
+					{% for event in row %}
+						<div class="col-md-4">
+							<section class="event expired">
+								<h3 class="event_title">{{event.name}}</h3>
+								<article>
+									<h4>Place and Time</h4>
+			                        {% localtime on %}
+			                            <p>{{event.time}} @ {{event.location}}</p>
+			                    	{% endlocaltime %}
+
+								</article>
+								<article>
+									<h4>Description</h4>
+									<p>{{event.information}}</p>
+								</article>
+							</section>
+						</div>
+					{% endfor %}
+
+				</div>
 			{% endfor %}
 		</div>
 	</div>
-	<div class="full" id="team">
-		<h2>Team</h2>
+	<div class="full section" id="team">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<h2 class="section-head">Team</h2>
+				</div>
+			</div>
+		</div>
 		<section>
-			{% for member in team %}
-				<article class="team_member" id="{{member.last_name}}">
-					<h3>{{member.first_name}} {{member.last_name}}</h3>
-					<p>
-						<img src="{{member.picture}}" class="member_picture"/>
-						{{member.bio}}
-					</p>
-					{% if member.interests %}
-						<div class="memeber_interests">
-							<ul>
-								{% for i in member.interests %}
-									<li class="interests">{{ i }}</li>
-								{% endfor %}
-							</ul>
+			{% for row in team %}
+				<div class="row">
+					{% for member in row %}
+						<div class="col-md-4">
+							<article class="team_member" id="{{member.last_name}}">
+								<h3>{{member.name}}</h3>
+								<p><img src="{{member.picture.url}}" class="member_picture"/></p>
+			                    <p>
+									{{member.bio}}
+								</p>
+								{% if member.interests %}
+									<div class="member_interests">
+										{{member.name}}'s Intrests include:
+										<ul>
+											{% for i in member.interests.all %}
+												<li class="interests">{{ i }}</li>
+											{% endfor %}
+										</ul>
+									</div>
+								{% endif %}
+							</article>
 						</div>
-					{% endif %}
-				</article>
+					{% endfor %}
+				</div>
 			{% endfor %}
 		</section>
 	</div>
 
-	<div class="full" id="contact">
-		<h2>Contact Us</h2>
-		<div id="maillist">
-			<form id="join_maillist">
-				<label for="mailing_list">Enter your email bellow to join our mailing list.</label>
-				<input type="text" name="mailing_list"/>
-				<input type="submit"/>
-			</form>
+	<div class="full section" id="contact">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<h2 class="section-head">Contact</h2>
+			</div>
+		</div>
+		<div div class="col-md-8 col-md-offset-2">
+				<div class="row">
+                    <div class="col-xs-12">
+                        <label for="mailing_list" style="color:white;">Sign up for the Spartan Hackers mailing list for updates on upcoming hackathons, upcoming workshops, and hackathon recaps.</label>
+                    </div>
+                </div>
+                <!-- Begin MailChimp Signup Form -->
+            <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+            <style type="text/css">
+                #mc_embed_signup{clear:left; font:14px Helvetica,Arial,sans-serif; }
+                /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+                   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+            </style>
+            <div id="mc_embed_signup">
+            <form action="//spartanhackers.us11.list-manage.com/subscribe/post?u=c4c0006c6308da6ea656d3c03&amp;id=53f0c18efe" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                <div id="mc_embed_signup_scroll">
+                <h2>Subscribe to our mailing list</h2>
+            <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+            <div class="mc-field-group">
+                <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+            </label>
+                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+            </div>
+            <div class="mc-field-group">
+                <label for="mce-FNAME">First Name  <span class="asterisk">*</span>
+            </label>
+                <input type="text" value="" name="FNAME" class="required" id="mce-FNAME">
+            </div>
+            <div class="mc-field-group">
+                <label for="mce-LNAME">Last Name  <span class="asterisk">*</span>
+            </label>
+                <input type="text" value="" name="LNAME" class="required" id="mce-LNAME">
+            </div>
+            <div class="mc-field-group input-group">
+                <strong>Receive emails about SpartaHack applications?  <span class="asterisk">*</span>
+            </strong>
+                <ul><li><input type="radio" value="Yes" name="MMERGE3" id="mce-MMERGE3-0"><label for="mce-MMERGE3-0">Yes</label></li>
+            <li><input type="radio" value="No" name="MMERGE3" id="mce-MMERGE3-1"><label for="mce-MMERGE3-1">No</label></li>
+            </ul>
+            </div>
+                <div id="mce-responses" class="clear">
+                    <div class="response" id="mce-error-response" style="display:none"></div>
+                    <div class="response" id="mce-success-response" style="display:none"></div>
+                </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_c4c0006c6308da6ea656d3c03_53f0c18efe" tabindex="-1" value=""></div>
+                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                </div>
+            </form>
+            </div>
+            <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='MMERGE3';ftypes[3]='radio';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+<!--End mc_embed_signup-->
 		</div>
 	</div>
+
+	<script>
+		$('.event').matchHeight();
+	</script>
 </body>
 </html>

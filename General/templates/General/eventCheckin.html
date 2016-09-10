@@ -1,0 +1,44 @@
+{% extends "General/codeList.html" %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h2 class="section-head">Check In</h2>
+        </div>
+    </div>
+    {% block internal_content %}
+        <div class = "full" id="checkin-form">
+            <div class="container-fluid">
+                <div class="row">
+                    <div div class="col-md-8 col-md-offset-2">
+                        <form method="POST" action="/check-in/">
+                            {% csrf_token %}
+                            <div class="row control-group">
+                                <div class="form-group col-xs-12 floating-label-form-group controls">
+                                    <label for="email" style="color:white;">Enter your email:</label>
+                                    <input type="email" class="form-control" placeholder="Email Address" id="email" required name="email"/>
+                                </div>
+                            </div>
+
+                            <div class="row control-group">
+                                <div class="form-group col-xs-12 floating-label-form-group controls">
+                                    <label for="code" style="color:white;">Enter Event Code:</label>
+                                    <input type="text" class="form-control" placeholder="Event Code" id="code" required name="code"/>
+                                </div>
+                            </div>
+
+                            <div class="row control-group">
+                                <div class="form-group col-xs-12 floating-label-form-group controls">
+                                    <button id="checkin">Check Me In!</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+    
+
+{% endblock %}

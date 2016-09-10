@@ -1,0 +1,15 @@
+{% extends "General/codeList.html" %}
+
+{% block content %}
+    <div>
+        <div>
+            <h2> {{count}} user checked into <span class="highlight">{{event.name}}</span></h2>
+            
+        </div>
+    </div>
+
+    {% for user in users %}
+        <a class="btn">{{ user.name }}</a>
+    {% endfor %}
+    
+{% endblock %}
