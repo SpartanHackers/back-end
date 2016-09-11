@@ -34,4 +34,4 @@ urlpatterns = [
     url(r'^events/$', getAttendees, name="allAttendees"),
     url(r'^events/(?P<event>.*)$', getAttendees, name="event_attendees"),
     url(r'^members/eligible/(?P<vote_run>.*)$', getEligible, name="event_attendees"),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
