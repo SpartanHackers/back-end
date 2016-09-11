@@ -60,6 +60,4 @@ target/
 .idea/
 db.sqlite3
 __pycache__/
-*.JPG
-*.png
 migrations/
