@@ -122,7 +122,7 @@
 					{% for event in row %}
 						<div class="col-md-4">
 							<section class="event current">
-								<h3 class="event_title">{{event.name}}</h3>
+								<a href="{{ event.url }}"><h3 class="event_title">{{event.name}}</h3></a>
 								<article>
 									<h4>Place and Time</h4>
 			                        {% localtime on %}

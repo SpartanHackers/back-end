@@ -44,7 +44,7 @@ class Events(models.Model):
     closed = models.BooleanField(default=False)
 
     def __str__(self):
-        return "{0}:{1}".format(self.name, self.getUrl())
+        return "{0}:{1}".format(self.name, self.url)
 
     @classmethod
     def GenerateCode(cls, size=6, chars=string.ascii_letters+string.digits):
@@ -121,7 +121,8 @@ class Events(models.Model):
     def getAllUsers(self):
         return self.members_set
 
-    def getUrl(self):
+    @property
+    def url(self):
         return "https://www.facebook.com/events/{0}/".format(self.fb_id)
 
     @classmethod
