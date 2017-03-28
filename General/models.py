@@ -82,7 +82,7 @@ class Events(models.Model):
         events = data["data"]
         for event in events:
             if cls.objects.filter(fb_id=event["id"]).first() is not None:
-                return
+                continue
             time = event["start_time"].replace("-0400", "+0000")
             time = dateutil.parser.parse(time)
             time = utc_to_local(time)
@@ -96,7 +96,7 @@ class Events(models.Model):
             obj = dict(
                 name=event["name"],
                 location=location,
-                information=event["description"],
+                information=event.get("description", "Description coming soon"),
                 fb_id=event["id"],
                 time=time,
             )
